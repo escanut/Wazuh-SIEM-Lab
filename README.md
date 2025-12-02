@@ -1,6 +1,4 @@
-# Untitled
-
-## 📌 Project Summary
+# 📌 Project Summary
 
 This lab demonstrates a full security monitoring pipeline using **Wazuh SIEM**. It covers deployment, agent onboarding, and event generation across Windows and Linux systems. Industry data shows that endpoint telemetry remains the highest-value data source for detection, with over 70 percent of confirmed incidents correlating back to basic host events. This project replicates that workflow in a controlled lab environment.
 
@@ -42,7 +40,8 @@ This lab focuses on high-signal events, not noise. These categories consistently
 
 Monitored failed login attempt on Windows agent. Alert captured unauthorized access attempt.
 
-![Full alert details](Windows_Full_login.png)
+![Full alert details](screenshots/Windows_Full_login.png)
+
 
 Full alert details
 
@@ -50,7 +49,7 @@ Full alert details
 
 A new user was created, added to the sudo group, given a password, then logged in. The SIEM flagged the entire escalation chain, showing an account moving from normal user to full admin privileges.
 
-![Full Path](Ubuntu_Priviledge_Escalation_Attack_Path.png)
+![Full Path](screenshots/Ubuntu_Priviledge_Escalation_Attack_Path.png)
 
 Full Path
 
@@ -71,6 +70,6 @@ SIEM monitoring is statistically one of the top three baseline skills required f
 Wazuh-SIEM-Lab/
 ├── screenshots/        # Dashboard + alerts
 ├── logs/               # Exported alert logs
-└── [README.md](http://readme.md/)           
+└── README.md           
               
 ```

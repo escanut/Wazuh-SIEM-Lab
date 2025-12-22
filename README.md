@@ -1,8 +1,8 @@
-# 📌 Project Summary
+# Project Summary
 
 This lab demonstrates a full security monitoring pipeline using **Wazuh SIEM**. It covers deployment, agent onboarding, and event generation across Windows and Linux systems. Industry data shows that endpoint telemetry remains the highest-value data source for detection, with over 70 percent of confirmed incidents correlating back to basic host events. This project replicates that workflow in a controlled lab environment.
 
-## 🧱 Infrastructure Architecture
+## Infrastructure Architecture
 
 - **Wazuh Manager**: Ubuntu 25.10 Live Server
 - **Linux Agent**: Ubuntu 22.04.5 Desktop GNOME
@@ -12,7 +12,7 @@ This lab demonstrates a full security monitoring pipeline using **Wazuh SIEM**. 
 
 This setup mirrors what most small to mid-size organizations (SMBs) run, where detection often depends on a mix of Windows and Linux logs feeding into a centralized SIEM.
 
-## 🚀 Deployment Overview
+##  Deployment Overview
 
 ### 1. Wazuh Server Deployment
 
@@ -32,7 +32,7 @@ This setup mirrors what most small to mid-size organizations (SMBs) run, where d
     - Verified through command-line agent control
     - Dashboard filtered with `agent.id:000` for server-side telemetry
 
-## 🔍 Event Generation Scenarios
+##  Event Generation Scenarios
 
 This lab focuses on high-signal events, not noise. These categories consistently generate the strongest detection value in real environments based on incident-response statistics.
 
@@ -55,7 +55,7 @@ Full Path
 
 Screenshots will be placed in a dedicated `/screenshots` folder.
 
-## 📊 What This Demonstrates
+## What This Demonstrates
 
 - Ability to deploy and manage a production-style SIEM stack
 - End-to-end telemetry flow across multiple operating systems
@@ -64,7 +64,7 @@ Screenshots will be placed in a dedicated `/screenshots` folder.
 
 SIEM monitoring is statistically one of the top three baseline skills required for security operations and entry-level defensive roles. This lab reflects that workload accurately.
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```powershell
 Wazuh-SIEM-Lab/

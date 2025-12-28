@@ -1,5 +1,3 @@
-# Wazuh SIEM Deployment and Endpoint Monitoring
-
 ## Project Overview
 
 Deployed and configured a centralized security monitoring solution using Wazuh SIEM for a client operating mixed Windows and Linux systems. The objective was to establish reliable endpoint visibility, validate log ingestion, and confirm detection of security-relevant activity across all managed hosts.

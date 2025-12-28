@@ -1,75 +1,93 @@
-# Project Summary
+# Wazuh SIEM Deployment and Endpoint Monitoring
 
-This lab demonstrates a full security monitoring pipeline using **Wazuh SIEM**. It covers deployment, agent onboarding, and event generation across Windows and Linux systems. Industry data shows that endpoint telemetry remains the highest-value data source for detection, with over 70 percent of confirmed incidents correlating back to basic host events. This project replicates that workflow in a controlled lab environment.
+## Project Overview
 
-## Infrastructure Architecture
+Deployed and configured a centralized security monitoring solution using Wazuh SIEM for a client operating mixed Windows and Linux systems. The objective was to establish reliable endpoint visibility, validate log ingestion, and confirm detection of security-relevant activity across all managed hosts.
 
-- **Wazuh Manager**: Ubuntu 25.10 Live Server
-- **Linux Agent**: Ubuntu 22.04.5 Desktop GNOME
-- **Windows Agent**: Windows 10 22H2
-- **Hypervisor**: VMware Workstation
-- **Networking**: Internal virtual network, same broadcast domain for all endpoints
+## Scope of Work
 
-This setup mirrors what most small to mid-size organizations (SMBs) run, where detection often depends on a mix of Windows and Linux logs feeding into a centralized SIEM.
+- Deployed and configured a Wazuh SIEM server
+- Onboarded Windows and Linux endpoints
+- Validated agent communication and log ingestion
+- Generated and verified security-relevant events
+- Delivered evidence of detections and system visibility
 
-##  Deployment Overview
+## Environment
 
-### 1. Wazuh Server Deployment
+**Deployed SIEM Server:** Wazuh Manager on Ubuntu Server
 
-- Installed using the official All-in-One installer
-- Verified operational components: Wazuh Manager, Filebeat, OpenSearch stack
-- Confirmed dashboard accessibility and core services
+**Endpoints:**
+- Windows 10 workstation
+- Ubuntu Linux workstation
 
-### 2. Endpoint Agent Deployment
+**Virtualization:** VMware Workstation
 
-- **Windows Agent**
-    - Downloaded and registered via dashboard
-    - Service validated and activated
-- **Linux Agent**
-    - Installed via shell script
-    - Configured manager address and started agent
-- **Local Agent (Agent 000)**
-    - Verified through command-line agent control
-    - Dashboard filtered with `agent.id:000` for server-side telemetry
+**Network:** Internal isolated network with all systems reachable by the SIEM
 
-##  Event Generation Scenarios
+## Implementation Details
 
-This lab focuses on high-signal events, not noise. These categories consistently generate the strongest detection value in real environments based on incident-response statistics.
+### SIEM Server Deployment
 
-### Windows Event: Failed authentication attempt
+- Installed Wazuh using the official all-in-one installer
+- Verified operational status of core services and dashboard access
+- Confirmed the SIEM server was monitoring its own host activity
 
-Monitored failed login attempt on Windows agent. Alert captured unauthorized access attempt.
+### Endpoint Onboarding
 
-![Full alert details](screenshots/Windows_Full_login.png)
+- Installed and registered the Wazuh agent on a Windows endpoint
+- Installed and configured the Wazuh agent on a Linux endpoint
+- Approved agents through the SIEM dashboard
+- Verified active status and heartbeat for all endpoints
 
 
-Full alert details
+![Windows Agent Active](screenshots/Agents_Confirmation.png)
+**Evidence: Active Agents**
 
-### Linux Event: Privilege escalation attempt
 
-A new user was created, added to the sudo group, given a password, then logged in. The SIEM flagged the entire escalation chain, showing an account moving from normal user to full admin privileges.
+### Detection Validation
 
-![Full Path](screenshots/Ubuntu_Priviledge_Escalation_Attack_Path.png)
+Controlled security events were generated to validate end-to-end detection.
 
-Full Path
+### Windows Event: Authentication Failure
 
-Screenshots will be placed in a dedicated `/screenshots` folder.
+Failed login attempts were generated on the Windows endpoint to validate credential monitoring. The activity was successfully ingested and surfaced as a security alert.
 
-## What This Demonstrates
 
-- Ability to deploy and manage a production-style SIEM stack
-- End-to-end telemetry flow across multiple operating systems
-- Event detection logic aligned with real attacker behavior patterns
-- Baseline host monitoring using Wazuh built-in modules
+![Windows Failed Login Alert](screenshots/Windows_LoginPath.png)
 
-SIEM monitoring is statistically one of the top three baseline skills required for security operations and entry-level defensive roles. This lab reflects that workload accurately.
+![Windows Full Alert Details](screenshots/Windows_Full_login.png)
+**Evidence: Windows Authentication Alert**
 
-## Repository Structure
+### Linux Event: Privilege Escalation
 
-```powershell
-Wazuh-SIEM-Lab/
-├── screenshots/        # Dashboard + alerts
-├── logs/               # Exported alert logs
-└── README.md           
-              
-```
+A controlled privilege escalation sequence was performed on the Linux endpoint, including user creation and elevation to administrative access. The SIEM captured the full activity chain.
+
+
+
+![Linux Privilege Escalation Alert](screenshots/Ubuntu_Priviledge_Escalation_Attack_Path.png)
+**Evidence: Attack Path**
+
+![Linux Escalation Attack Path](screenshots/UserAdded_1.png)
+**Evidence: Linux User Added**
+
+![Linux Escalation Attack Path](screenshots/Initial_Access.png)
+**Evidence: Initial Access**
+
+![Linux Escalation Attack Path](screenshots/Priviledge_Escalation.png)
+**Evidence: Linux Privilege Escalation**
+
+## Deliverables
+
+- Fully deployed and operational Wazuh SIEM server
+- Windows and Linux endpoints reporting to the SIEM
+- Verified security alerts visible through the dashboard
+- Screenshot evidence of:
+  - Active agents
+  - Detected security events
+  - Alert timelines and details
+- Structured repository containing screenshots and exported logs
+
+
+## Outcome
+
+The client received a centralized security monitoring deployment providing visibility into endpoint activity across multiple operating systems. The environment is suitable for ongoing detection, investigation, and future alert tuning without additional infrastructure changes.

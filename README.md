@@ -89,3 +89,14 @@ A controlled privilege escalation sequence was performed on the Linux endpoint, 
 ## Outcome
 
 The client received a centralized security monitoring deployment providing visibility into endpoint activity across multiple operating systems. The environment is suitable for ongoing detection, investigation, and future alert tuning without additional infrastructure changes.
+
+## Contact Information
+
+**Victor Ogechukwu Ojeje**
+
+LinkedIn: https://www.linkedin.com/in/victorojeje/  
+Email: ojejevictor@gmail.com  
+GitHub: https://github.com/escanut
+
+
+---
